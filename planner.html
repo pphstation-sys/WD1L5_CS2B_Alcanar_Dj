@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- WD1-L5: Planner (list) page. Only logged-in users can stay here. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Planner | StudyPlanner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app">
+
+  <!-- Top navigation -->
+  <header class="nav">
+    <h1 class="brand">Study<span>Planner</span></h1>
+    <div class="nav-right">
+      <span>Hi, <strong id="userName"></strong></span>
+      <button type="button" id="logoutBtn" class="btn btn-outline">Log out</button>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- LEFT: stats and add-task form -->
+    <aside class="side">
+
+      <!-- Stat cards (numbers filled in by JS) -->
+      <section class="stats">
+        <div class="stat"><span id="statTotal">0</span><small>Total</small></div>
+        <div class="stat"><span id="statDone">0</span><small>Done</small></div>
+        <div class="stat"><span id="statLate">0</span><small>Overdue</small></div>
+      </section>
+
+      <!-- Add-task form -->
+      <form id="taskForm" class="panel" novalidate>
+        <h2>New task</h2>
+
+        <label for="title">Task</label>
+        <input type="text" id="title" placeholder="e.g. Finish WD1 lab">
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="e.g. Web Development">
+
+        <label for="due">Due date</label>
+        <input type="date" id="due">
+
+        <label for="priority">Priority</label>
+        <select id="priority">
+          <option value="High">High</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="Low">Low</option>
+        </select>
+
+        <button type="submit" class="btn">Add task</button>
+        <p id="message" class="message" role="alert"></p>
+      </form>
+    </aside>
+
+    <!-- RIGHT: filters and task list -->
+    <section class="panel main">
+      <div class="main-head">
+        <h2>My tasks</h2>
+        <button type="button" id="clearDoneBtn" class="btn btn-outline small">Clear completed</button>
+      </div>
+
+      <!-- Filter buttons (one listener handles all of them) -->
+      <div class="filters" id="filters">
+        <button type="button" class="chip active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="pending">Pending</button>
+        <button type="button" class="chip" data-filter="done">Done</button>
+      </div>
+
+      <p id="emptyText" class="empty"></p>
+      <ul id="taskList" class="tasks"></ul>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

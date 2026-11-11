@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- WD1-L5: Login page -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | StudyPlanner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth">
+
+  <main class="auth-box">
+    <h1 class="brand">Study<span>Planner</span></h1>
+    <p class="tagline">Welcome back. Your tasks are waiting.</p>
+
+    <form id="loginForm" novalidate>
+      <h2>Log in</h2>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" autocomplete="username">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password">
+
+      <!-- Toggle to show or hide the password -->
+      <label class="inline">
+        <input type="checkbox" id="togglePassword"> Show password
+      </label>
+
+      <button type="submit" class="btn">Log in</button>
+      <p id="message" class="message" role="alert"></p>
+    </form>
+
+    <p class="switch">No account yet? <a href="register.html">Register here</a></p>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

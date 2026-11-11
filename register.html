@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- WD1-L5: Register page | External CSS + external JS, no frameworks -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | StudyPlanner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth">
+
+  <main class="auth-box">
+    <h1 class="brand">Study<span>Planner</span></h1>
+    <p class="tagline">Plan your tasks. Beat your deadlines.</p>
+
+    <!-- Registration form (handled by js/register.js) -->
+    <form id="registerForm" novalidate>
+      <h2>Create account</h2>
+
+      <label for="fullName">Full name</label>
+      <input type="text" id="fullName" autocomplete="name">
+
+      <label for="username">Username</label>
+      <input type="text" id="username" autocomplete="username">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" autocomplete="email">
+
+      <label for="password">Password (min. 6 characters)</label>
+      <input type="password" id="password" autocomplete="new-password">
+
+      <label for="confirmPassword">Confirm password</label>
+      <input type="password" id="confirmPassword" autocomplete="new-password">
+
+      <button type="submit" class="btn">Sign up</button>
+
+      <!-- Error / success message is written here by JS -->
+      <p id="message" class="message" role="alert"></p>
+    </form>
+
+    <p class="switch">Already registered? <a href="login.html">Log in</a></p>
+  </main>
+
+  <!-- storage.js must load first because the other scripts use it -->
+  <script src="js/storage.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

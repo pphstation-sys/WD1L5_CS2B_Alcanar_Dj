@@ -1,0 +1,242 @@
+/* WD1-L5: External stylesheet (no frameworks) */
+/* Theme: dark navy with violet and mint accents */
+
+/* ---------- Theme variables (change colors here) ---------- */
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-2: #273449;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --violet: #8b5cf6;
+  --violet-dark: #7c3aed;
+  --mint: #34d399;
+  --red: #f87171;
+  --amber: #fbbf24;
+  --radius: 14px;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a { color: var(--mint); }
+
+h1, h2 { margin: 0; }
+
+.brand { font-size: 1.6rem; font-weight: 800; }
+.brand span { color: var(--violet); }
+
+/* ---------- Form controls (shared) ---------- */
+label {
+  display: block;
+  margin: 0.9rem 0 0.3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+label.inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--panel-2);
+  border-radius: 10px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.2rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--violet);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover { background: var(--violet-dark); }
+.btn:active { transform: scale(0.97); }
+
+.btn-outline {
+  width: auto;
+  margin: 0;
+  background: transparent;
+  border: 1px solid var(--violet);
+  color: var(--text);
+}
+
+.btn-outline:hover { background: var(--violet); }
+.small { padding: 0.35rem 0.8rem; font-size: 0.8rem; }
+
+/* Message line (JS adds the "error" or "success" class) */
+.message { min-height: 1.4rem; margin: 0.8rem 0 0; font-weight: 600; }
+.message.error { color: var(--red); }
+.message.success { color: var(--mint); }
+
+/* ---------- Login and Register pages ---------- */
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: radial-gradient(circle at top left, #312e81, var(--bg) 60%);
+}
+
+.auth-box { width: 100%; max-width: 400px; text-align: center; }
+.tagline { margin: 0.3rem 0 1.5rem; color: var(--muted); }
+
+.auth form {
+  padding: 1.8rem;
+  text-align: left;
+  background: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.auth h2 { text-align: center; }
+.switch { margin-top: 1.2rem; color: var(--muted); font-size: 0.9rem; }
+
+/* ---------- Planner page ---------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--panel);
+  border-bottom: 2px solid var(--violet);
+}
+
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+
+/* Two columns: sidebar and main list */
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  align-items: start;
+}
+
+.panel {
+  padding: 1.4rem;
+  background: var(--panel);
+  border-radius: var(--radius);
+}
+
+/* Stat cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  padding: 0.8rem 0.4rem;
+  text-align: center;
+  background: var(--panel);
+  border-radius: 12px;
+}
+
+.stat span { display: block; font-size: 1.6rem; font-weight: 800; color: var(--mint); }
+.stat small { color: var(--muted); }
+
+/* List header and filter chips */
+.main-head { display: flex; justify-content: space-between; align-items: center; }
+
+.filters { display: flex; gap: 0.5rem; margin: 1rem 0; }
+
+.chip {
+  padding: 0.3rem 1rem;
+  font: inherit;
+  color: var(--muted);
+  background: var(--panel-2);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chip.active { background: var(--violet); color: #fff; }
+
+.empty { margin: 2rem 0; text-align: center; color: var(--muted); }
+.empty[hidden] { display: none; }
+
+/* Task items: the colored left border shows the priority */
+.tasks { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.6rem; }
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: var(--panel-2);
+  border-left: 5px solid var(--amber);
+  border-radius: 10px;
+}
+
+.task[data-priority="High"] { border-left-color: var(--red); }
+.task[data-priority="Medium"] { border-left-color: var(--amber); }
+.task[data-priority="Low"] { border-left-color: var(--mint); }
+
+.task input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: var(--mint); cursor: pointer; }
+
+.task-info { flex: 1; min-width: 0; }
+.task-title { display: block; font-weight: 600; word-break: break-word; }
+.task-meta { font-size: 0.8rem; color: var(--muted); }
+
+/* Completed and overdue looks */
+.task.done { opacity: 0.5; }
+.task.done .task-title { text-decoration: line-through; }
+.task.late .task-meta { color: var(--red); font-weight: 600; }
+
+.task-delete {
+  padding: 0.25rem 0.7rem;
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--red);
+  background: transparent;
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.task-delete:hover { background: var(--red); color: #fff; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  .nav { flex-direction: column; gap: 0.6rem; }
+}
